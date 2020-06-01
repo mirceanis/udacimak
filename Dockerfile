@@ -40,7 +40,9 @@ RUN node -v
 RUN npm -v
 
 # install Udacimak
-RUN npm i -g udacimak
+COPY . /app
+RUN cd /app && npm install && npm run build && npm link
+
 # confirm install
 RUN udacimak --help
 
